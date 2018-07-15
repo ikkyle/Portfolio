@@ -34,7 +34,7 @@ The GUI offers the user a logical workflow that progresses through loading data,
 
 ### Errorizer
 
-Errorizer is a R package I wrote and submitted to CRAN to help me debug code that executes in large iterations and fails due to unhandled errors. It's only function, `errorize`, takes a function as one of it's arguments and returns that same function with expanded error handling abilities, including the ability to write debugging info and data structues to disk on error. It was particularly useful when processing the hundreds of thousands of web pages I scraped for my social media analysis--an unhandled error 2 hours into my script can be difficult to debug post hoc with just the stack trace, so "errorizing" my processing function allowed me to go back and interactivly debug the error after my script had finished. 
+Errorizer is a R package I wrote and submitted to CRAN to help me debug code that executes in large iterations and fails due to unhandled errors. It's only function, `errorize`, takes a function as one of it's arguments and returns that same function with expanded error handling abilities, including the ability to write debugging info and data structures to disk on error. It was particularly useful when processing the hundreds of thousands of web pages I scraped for my social media analysis--an unhandled error 2 hours into my script can be difficult to debug post hoc with just the stack trace, so "errorizing" my processing function allowed me to go back and interactively debug the error after my script had finished. 
 
 * [github repo](https://github.com/ikkyle/errorizer)
 * [CRAN](https://cran.r-project.org/package=errorizer)
