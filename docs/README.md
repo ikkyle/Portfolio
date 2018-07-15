@@ -21,7 +21,7 @@ I play drums in an instrumental jazz/rock/funk band called The Splodeyheads, one
 
 # Past Work
 
-Regrettably, many of the projects I've worked on that I am most proud of live behind closed doors, due to the sensitivity of the data I work with and employer policies. What follows are some projects I've worked on. Many are hobbies entirely unrelated to my substantive interests, but a few gems offer some real value. 
+Regrettably, many of the projects I've worked on that I am most proud of live behind closed doors, due to the sensitivity of the data I work with and employer policies. What follows are some projects I've worked on that I *can* show off. Many are hobbies entirely unrelated to my substantive interests, but a few gems offer some real value. 
 
 ### Agroft
 
