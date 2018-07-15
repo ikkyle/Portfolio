@@ -54,7 +54,7 @@ options(error = function(){
 
 ```
 
-## The Code
+# The Code
 
 The process of scraping the data is actuially really simple.
 
