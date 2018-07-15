@@ -33,7 +33,6 @@ I play drums in an instrumental jazz/rock/funk band called The Splodeyheads, one
 
 # Past Work
 
-
 Regrettably, many of the projects I've worked on that I am most proud of live behind closed doors, due to the sensitivity of the data I work with and employer policies. What follows are some projects I've worked on that I *can* show off. Many are hobbies entirely unrelated to my substantive interests, but a few gems offer some real value. 
 
 ## Agroft
@@ -61,6 +60,7 @@ I spent some time scraping a popular dating site (I'll call it "OKStupid") in an
 * Mapping Match Percent
 * Predictive Power of Age/The Importance of R-squared
 
+
 ## Other Projects/Achivements:
 
 * **Translated genetic network traversal algorithms** from R to Julia
@@ -72,7 +72,6 @@ I spent some time scraping a popular dating site (I'll call it "OKStupid") in an
 * **Modernized technical infrastructure of several past workplaces**, making version control, code packages , and infrastructure as code standard practice, and streamlining workflow by improving computational infrastructure, replacing versioned flat files with relational databases, and spreading awareness about best practices for tools like R, Python, Linux, git, SQL, and more. 
 * **Built a dashboard for easier data access** allowing researchers to query data on their own with a point and click interface rather than having to request data from a data manager and wait for it to be constructed. 
 * **Wrote an algorithm for creating matched samples** based on bagging and unsupervised learning that is more flexible and reduces bias in small datasets. This method was used in the landmark Autism early intervention paper: *Rogers, S. J., Vismara, L., Wagner, A. L., McCormick, C., Young, G., & Ozonoff, S. (2014). Autism Treatment in the First Year of Life: A Pilot Study of Infant Start, a Parent-Implemented Intervention for Symptomatic Infants. Journal of Autism and Developmental Disorders, 44(12), 2981–2995. http://doi.org/10.1007/s10803-014-2202-y*
-
 
 
 
