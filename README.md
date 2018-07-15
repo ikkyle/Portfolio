@@ -6,7 +6,7 @@ I'm passionate about soclai and economic justice, open access to information, an
 
 My [resume](./resume.pdf) offers more information on my educational and vocational history. My (rarely updated) [personal website](http://ikkyle.com) offers a look into some topics that were of interest to me years ago, but was mostly created as a tool to learn about managing remote servers and to have access to my development environments (Rstudio server, Jupyter) from any computer, and my embarrassingly candid blog [fauxktrends](http://fauxktrends.tumblr.com/archive) offers a view into a web scraping and analysis project I found engaging several years ago. I link to it not becasue it is terribly impressive or engaging, but to remind myself that the past informs the future, and forgetting about the past (purposefully or not), means we will be doomed to repeat it*. 
 
-* An issue that comes up often in building models, mathematical ot otherwise, as it is so easy and can be so damaging to encode historial biases in our models. 
+\*An issue that comes up often in building models, mathematical ot otherwise, as it is so easy and can be so damaging to encode historial biases in our models. 
 
 # Past Work
 
