@@ -30,7 +30,7 @@ My <a href="www/src/resume.pdf" download>resume</a> offers more information on m
 
 I play drums in an instrumental jazz/rock/funk band called The Splodeyheads, one of my life goals is to get a private pilot license, and I'm always looking to grow my collection of strange taxidermy. 
 
-# Past Work
+# Past Projects
 
 Regrettably, many of the projects I've worked on that I am most proud of live behind closed doors, due to the sensitivity of the data I work with and employer policies. What follows are some projects I've worked on that I *can* show off. Many are hobbies entirely unrelated to my substantive interests, but a few gems offer some real value. 
 
