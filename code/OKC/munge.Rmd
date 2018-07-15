@@ -1,6 +1,8 @@
 ---
 title: "Data Munging"
-output: html_document
+output: 
+  html_document:
+    code_folding: show
 ---
 
 # Setup

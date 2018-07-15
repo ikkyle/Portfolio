@@ -50,6 +50,7 @@ Errorizer is a R package I wrote and submitted to CRAN to help me debug code tha
 
 * [errorizer github repo](https://github.com/ikkyle/errorizer)
 * [errorizer on CRAN](https://cran.r-project.org/package=errorizer)
+* [Vignette](https://cran.r-project.org/web/packages/errorizer/vignettes/errorize.html)
 
 ## Webscraping Analysis
 
