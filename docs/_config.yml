@@ -5,18 +5,5 @@ theme: jekyll-theme-slate
 title: Roz (Ian Kyle) King
 
 # Short description of your site
-description: A little about me and some of some of my past hobby projects
-
-navbar-links:
-  About Me: "aboutme"
-  Past Work:
-    - Agroft: "agroft"
-    - Webscraping Analysis: "webscrapinganalysis"
-  External Links:
-    - Github: "https://github.com/ikkyle"
-    - LinkedIn: "https://www.linkedin.com/in/roz-king-6034a186/"
-    - Stack Overflow: "https://stackoverflow.com/users/3542734/ikkyle"
-    - Personal Website: "http://ikkyle.com"
-    - Email: "iankyle@gmail.com"
-    - Resume: "/www/src/resume.pdf"
+description: A little about me and some past hobby projects
 
