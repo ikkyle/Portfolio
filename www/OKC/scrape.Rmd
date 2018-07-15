@@ -1,0 +1,156 @@
+---
+title: "Scraping a Popular Dating Site"
+output:
+  html_document:
+    df_print: paged
+---
+# Setup
+
+## Packages
+
+To scrape OKC, I used `rvest`, which includes bindings to `curl` and `xml2`, making it easier to naviage through a continuous session--whicc is imporant since I need to both be logged in and I use the "similar users" to jump from profile to profile. This is an obvious source of bias, so attempts were made to reduce this are discussed later. 
+
+I used the the `RPushbullet` package to send me push notifications when errors occurred so I could quickly fix them before the next scheduled  `cron` job. 
+
+I used `RSQLite` to interface with a SQLite database that stored data I scraped as well as a list of "seed" users I used to start the scraping. SQLite was a good option here, since I was using Dropbox to sync the data across my computers and only ever had one process writing at a time. If this project were to scale, I'd need to change backends. I made every attempt to adhere to the SQL standard in the syntax I wrote, ensuring that switch would be easy down the road. 
+
+
+```{r, eval=FALSE}
+library(rvest)
+library(RPushbullet)
+library(RSQLite)
+
+# username and password to my okc account
+# no auth0 options, so I had to hardcode it
+username = 'my username' 
+password = 'mypassword'
+```
+
+## Options
+
+I always sets `stringsAsFactors` to `FALSE` in my R code to avoid automatic character to factor issues, but not all R base functions that create `data.frames` respect this option (I'm looking at you, `expand.grid`).   
+
+
+The second option involves a custom error handler. Any errors reported will send a push notification so I can see when something fails. In addition, if the error is `Error in http_statuses[[as.character(status)]] : subscript out of bounds`, I reset my session and start the scraping process over again. This error often came up when my session expired or I got a HTTP status code in the 400s. It ended up being simpler to just start a new session.  
+
+```{r, eval=FALSE, echo=TRUE}
+options(stringsAsFactors=FALSE)
+options(error = function(){
+    pbPost(type = 'link',
+           title = 'Error',
+           body = geterrmessage())
+    if (geterrmessage() == 'Error in http_statuses[[as.character(status)]] : subscript out of bounds\n') {
+        set_config(user_agent(agnt))
+        s <- html_session('http://www.okstupid.com/', user_agent(agnt)) 
+        s <- follow_link(s, css = '#open_sign_in_button')
+        login <- html_form(s)[[3]]
+        vals  <- set_values(login, username = username, password = password)
+        
+        s <- submit_form(s, vals,  submit = '<unnamed>')
+        
+        doit() # this is the scraping workhorse function--just restarts if there's an error
+    }
+})
+
+```
+
+## The Code
+
+The process of scraping the data is actuially really simple.
+
+1. Select a seed username frome the database table listing seed users.
+2. Navigate to that profile, and download that full HTML if I don't yet have it
+3. Navigate to one of the "similar profiles" on that user's page and download HTML
+4. Repeat. 
+
+Most of the bloat is error handling, in cases where the profile doesn't exist, the URL had non-ASCII characters in it and the URL failed, etc. 
+
+The usernames in `tbl_user` were scraped using a different method under a different OKC username that had no info filled out and no questions answered in an attempt to remove bias from the final results. For each seed username I was able to generally get a few thousand profiles at least before a HTTP error forced me to move to the next seed user. In this was I was able to scrape a little over 500k profiles before I had enough data to explore. 
+
+```{r echo=TRUE, eval=FALSE}
+doit <- function(){
+    
+  # grabbing the seed usernames
+    unmall <- dbGetQuery(db, 'select username from tbl_user')$username
+    
+    # iterate through a random sample because you get different profiles each time from the same 
+    # seed, since this recurses though "similar profiles"
+    for (ii in sample(unmall)) {
+        
+        s <- tryCatch(jump_to(s, sprintf('https://www.okstupid.com/profile/%s', 
+                                         ii)),
+                      error = function(e){
+                          jump_to(s, 'https://www.okstupid.com')
+                      },
+                      warning = function(w){
+                          jump_to(s, 'https://www.okstupid.com')
+                      })
+        if(s$url == 'https://www.okstupid.com')
+            next
+        
+        repeat {
+            # get URLs to similar profiles
+            lnks  <- html_nodes(s, 'a[href*="profile_similar"]')
+            lnks  <- html_attrs(lnks)
+            
+            # pull usernames from that
+            usrs  <- gsub('/profile/|\\?.*$', '', sapply(lnks, function(x)(x['href'])))
+            
+            # make sure usernames pulled here haven't been scraped yet
+            # and only select on that hasn't
+            usrs2 <- unique(c(unmall, 
+                              gsub('user_|\\.html', '', list.files('data/pages')),
+                              gsub('user_|\\.html', '', list.files('data/page_archive'))))
+            usr   <- usrs[which(!usrs %in% usrs2)]
+            usr   <- tryCatch(sample(usr, 1), 
+                              error = function(e){NULL})
+            
+            # next ieratrion, if  I already had the data
+            # or if the URL failed (usually an encoding issue)
+            if(length(usr)==0 || is.na(usr))
+                break
+            
+            if(usr == iconv(usr, from = 'latin1', to = 'utf8')) {
+                s     <- jump_to(s, sprintf('https://www.okstupid.com/profile/%s/', usr))
+            } else {
+                break
+            }
+            
+            if(status_code(s) >= 400) {
+                message('\nstatus code 400\n')
+                break
+            }
+            
+            # save HTML
+            h <- read_html(s)
+            cat(as(h, 'character'), file = sprintf('data/pages/user_%s.html', usr))
+        }
+    }
+}
+
+```
+
+## Running the Code
+
+Running the code involved creating a new session by logging on with my hardcoded username and password, and then running my function above. Any errors would restart the function, so this generally ran indefinitely on my remote server unless something weird happened. 
+
+I initially had a bunch of sleeps built in after getting my IP blacklisted from craigslist--but I slowly removed them since it was taking too long to get data and OKS never made a fuss (sorry, OKS engineers).
+
+
+
+```{r, eval=FALSE, echo=TRUE}
+agnt <- 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+set_config(user_agent(agnt))
+
+s <- html_session('http://www.okstupid.com/', user_agent(agnt)) 
+s <- follow_link(s, css = '#open_sign_in_button')
+login <- html_form(s)[[3]]
+vals  <- set_values(login, username = usrname, password = password)
+
+s <- submit_form(s, vals,  submit = '<unnamed>')
+
+db <- dbConnect(SQLite(), 'data/userdata.db')
+doit()
+dbDisconnect(db)
+```
+
