@@ -1,0 +1,191 @@
+---
+title: "Data Munging"
+output: html_document
+---
+
+# Setup
+
+## Packages
+
+Just as in the scraping part, I used `rvest`, the friendly wrapper for `libxml` and `RSQLite` to parse XML and store/process data, respectivly. 
+
+```{r eval=FALSE}
+library(rvest)
+library(RSQLite)
+```
+
+## Helper Function
+
+A single helper function helps make sure encodings are something I can deal with for some NLP (many profiles included emojis and I had no plans to analyze those).
+
+```{r eval=FALSE}
+trim <- function(x){
+    if (length(x) == 0) {
+        return(NA)
+    }
+    x <- iconv(x, from = 'latin1', to = 'ascii', sub = '')
+    x <- gsub('^\\s+|\\s+$|^\\t+|\\t+$', '', x)
+    x
+}
+```
+
+# Munging
+
+This part id pretty straight forward. Any missing data is dealt with by passing `NA` to the relevant field. Missings will be dealth with later depending on the analysis. 
+
+```{r eval=FALSE}
+db <- dbConnect(SQLite(), 'data/userdata.db')
+
+# this is a vector of all raw HTML I've scraped but not yet processed
+pgs <- list.files('data/pages', full.names = TRUE)
+
+dat <- vector('list', length=length(pgs))
+
+for (i in seq_along(dat)) {
+    
+    h  <- read_html(pgs[i])
+    
+    # using css selectors--a little more user friendly than xpath IMO
+    pcts <- xml_nodes(h, css = '.matchgraph-info-pct')
+    match_pcts <- as.numeric(xml_text(pcts))
+    
+    if (length(pcts) == 0) {
+        dat[[i]] <- NULL
+        next
+    }
+        
+    location <- xml_text(xml_nodes(h, css = '.userinfo2015-basics-asl-location'))
+    city <- gsub('^(.*)\\,.*$', '\\1', location)
+    state <- gsub('^.*\\,(.*)$', '\\1', location)
+    
+    content <- xml_nodes(h, css = '.essays2015-essay-content')
+    txt     <- xml_text(content)
+    
+    age     <- as.numeric(xml_text(xml_node(h, '.userinfo2015-basics-asl-age')))
+    
+    lookingfor <- xml_text(xml_nodes(h, css = '.lookingfor2015-sentence'))
+    
+    if (length(txt) > 0) {
+        
+        titles  <- xml_nodes(h, css = '.essays2015-essay-title, profilesection-title')
+        titles.text <- c("My self-summary" = 'self_summary', 
+                         "What I’m doing with my life" = 'life', 
+                         "I’m really good at"='good_at', 
+                         'The first things people usually notice about me'='notice_first',
+                         "Favorite books, movies, shows, music, and food" = 'favorites', 
+                         "The six things I could never do without" = 'six_things', 
+                         "I spend a lot of time thinking about" = 'thinking_about', 
+                         "On a typical Friday night I am" = 'friday_night', 
+                         'The most private thing I’m willing to admit' = 'private_admit',
+                         "You should message me if" = 'message_me')[gsub('^\\s|\\s$', '', xml_text(titles))]
+        
+        titles.text <- titles.text[!is.na(titles.text)]
+        
+        names(txt) <- unname(titles.text)
+        txt <- sapply(txt, trim)
+        
+    } else {
+        txt <- c('self_summary' = NA, 
+                 'life' = NA, 
+                 'good_at' = NA, 
+                 'notice_first'=NA,
+                 'favorites' = NA, 
+                 'six_things' = NA, 
+                 'thinking_about' = NA, 
+                 'friday_night' = NA, 
+                 'private_admit'=NA,
+                 'message_me' = NA)
+    }
+    
+    name <- xml_text(xml_nodes(h, css = '.actionbar2015-info-username'))
+    
+    info       <- xml_nodes(h, css = '.details2015, profilesection')
+    
+    basics     <- xml_text(xml_nodes(info, css = '.details2015-section.basics'))
+    background <- xml_text(xml_nodes(info, css = '.details2015-section.background'))
+    misc       <- xml_text(xml_nodes(info, css = '.details2015-section.misc'))
+    
+    subpct     <- trim(html_text(xml_nodes(h, css = '.genreblock-pct')))
+    subpct.lab <- trim(html_text(xml_nodes(h, css = '.genreblock-label')))
+    
+    subpct     <- as.numeric(gsub('%|\\-\\-', '', subpct))
+    names(subpct) <- paste0(tolower(subpct.lab), '_pct')
+    
+    df <- data.frame(username        = trim(name),
+                     match_pct       = match_pcts[1],
+                     enemy_pct       = match_pcts[2],
+                     age             = age,
+                     location        = trim(location),
+                     city            = trim(city),
+                     state           = trim(state),
+                     looking_for     = trim(lookingfor),
+                     basic_info      = trim(basics),
+                     background_info = trim(background),
+                     misc_info       = trim(misc),
+                     as.list(txt),
+                     as.list(subpct))
+    
+    keep <- c('username', 
+              'match_pct', 'enemy_pct', 
+              'age',
+              'location', 'city', 'state',
+              'looking_for',
+              'basic_info', 
+              'background_info', 
+              'misc_info', 
+              'self_summary', 
+              'life', 
+              'good_at', 
+              'notice_first',
+              'favorites', 
+              'six_things', 
+              'private_admit',
+              'thinking_about', 
+              'friday_night', 
+              'message_me',
+              "other_pct", "dating_pct", "sex_pct", "ethics_pct", "lifestyle_pct", "religion_pct")
+    
+    hasnm <- names(df)
+    neednm <- keep[which(!keep %in% hasnm)]
+    df[neednm] <- NA 
+    
+    
+    dat[[i]] <- df[keep]
+}
+
+usr_data <- do.call(rbind, dat)
+```
+
+# File management
+
+After processing all the raw files, I pull out a list of existing usernames in the databse to make sure I'm dont inserting duplicates. I'm not worried about keeping up to date verions if a user changes their profile from one pull to another, so I'm perfectly happy throwing out the duplicate user info. This approach also means I can use the user name as a natural key and not worry about having to do any joins in the insert process. 
+
+The rest of the script is coping processed files to an archive location so they aren't needlessly processed again, backing up database tables, in case something goes wrong somewhere in a future insert (I have database backups as well, but these are managed automatically by dropbox). 
+
+
+```{r eval=FALSE}
+in_tbl <- unique(dbGetQuery(db, 'select username from tbl_userdata')$username)
+usr_data2 <- usr_data[which(!usr_data$username %in% in_tbl), ]
+
+dbWriteTable(db, 'tbl_userdata', usr_data2, append=TRUE)
+
+suc <- paste0('data/pages/user_', usr_data$username, '.html')
+to  <- paste0('data/page_archive/user_', usr_data$username, '.html')
+
+cp <- file.copy(from=suc, to=to)
+frm <- file.remove(suc[cp])
+
+
+### backup current data ###
+dt <- gsub('\\-', '', as.character(Sys.Date()))
+dbExecute(db, sprintf('create table bkp_userdata_%s as select * from tbl_userdata', dt))
+
+### remove duplicates from table ###
+drpqry <- 'delete from tbl_userdata 
+            where rowid not in 
+                (select max(rowid) from tbl_userdata
+                group by username)'
+
+dbExecute(db, drpqry)
+dbDisconnect(db)
+```
