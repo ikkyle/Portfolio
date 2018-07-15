@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<link href="libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="about-me" class="section level1">
+<h1>About Me</h1>
+<p><strong>Roz King</strong>/Ian Kyle</p>
+<p>Pronouns: they, them, theirs</p>
+<div id="background" class="section level3">
+<h3>Background</h3>
+<p>I am a graduate of UC Davis with a B.S. degree in psychology and statistics. I’ve worked conducting data analysis and building data systems in fields as diverse as Healthcare, Agriculture, Education, and Genomics. In the past I’ve been a Data Scientist, a DBA, a DevOps Engineer, a Researcher, a Software Developer, and a Linux Systems Admin, but I find I operate best when I blur the lines between all those roles. I’m deeply devoted to utilizing data for social good, and strive to work with like minded people.</p>
+<p>I’m passionate about social and economic justice, open access to information, and using technological advancements in data collection, management, and analysis, to create measurable positive change.</p>
+<p>My <a href="www/src/resume.pdf" download>resume</a> offers more information on my educational and vocational history. My (rarely updated) <a href="http://ikkyle.com">personal website</a> offers a look into some topics that were of interest to me years ago, but was mostly created as a tool to learn about managing remote servers and to have access to my development environments (Rstudio server, Jupyter) from any computer, and my embarrassingly candid blog <a href="http://fauxktrends.tumblr.com/archive">fauxktrends</a> offers a view into a web scraping and analysis project I found engaging several years ago. I link to it not because it is terribly impressive or engaging, but to remind myself that the past informs the future, and forgetting about the past (purposefully or not), means we will be doomed to repeat it*.</p>
+<p>*An issue that comes up often in building models, mathematical or otherwise, as it is so easy and can be so damaging to encode historical biases in our models.</p>
+</div>
+<div id="bragging-rights" class="section level3">
+<h3>Bragging Rights</h3>
+<p>I play drums in an instrumental jazz/rock/funk band called The Splodeyheads, one of my life goals is to get a private pilot license, and I’m always looking to grow my collection of strange taxidermy.</p>
+</div>
+</div>
+<div id="past-work" class="section level1">
+<h1>Past Work</h1>
+<p>Regrettably, many of the projects I’ve worked on that I am most proud of live behind closed doors, due to the sensitivity of the data I work with and employer policies. What follows are some projects I’ve worked on that I <em>can</em> show off. Many are hobbies entirely unrelated to my substantive interests, but a few gems offer some real value.</p>
+<div id="agroft" class="section level2">
+<h2>Agroft</h2>
+<p>I designed Agroft with support and funding from USAID and the UC Davis International Programs Office. Agroft is a graphical interface to R that is designed to help lower the R learning curve for agricultural researchers and make sound statistical analysis of field trial experimental designs accessible to anyone who needs it.</p>
+<p>The GUI offers the user a logical workflow that progresses through loading data, specifying experimental design, checking the assumptions of the model(s) required for that design, data transformations, running a model and posthoc tests, graphing the data, and exporting results into a useful report, with helpful tool tips and guidance on terms and statistical procedures along the way. The user doesn’t need to know about the complexity of the models behind the scenes, but they are shown the code that is run along the way and encouraged to build on that code on their own.</p>
+<ul>
+<li><a href="https://github.com/ucd-ipo/agroft">github repo</a></li>
+<li><a href="http://ikkyle.com/playground/aip-analysis/">live app</a></li>
+</ul>
+</div>
+<div id="errorizer" class="section level2">
+<h2>Errorizer</h2>
+<p>Errorizer is a R package I wrote and submitted to CRAN to help me debug code that executes in large iterations and fails due to unhandled errors. It’s only function, <code>errorize</code>, takes a function as one of it’s arguments and returns that same function with expanded error handling abilities, including the ability to write debugging info and data structures to disk on error. It was particularly useful when processing the hundreds of thousands of web pages I scraped for my social media analysis–an unhandled error 2 hours into my script can be difficult to debug post hoc with just the stack trace, so “errorizing” my processing function allowed me to go back and interactively debug the error after my script had finished.</p>
+<ul>
+<li><a href="https://github.com/ikkyle/errorizer">errorizer github repo</a></li>
+<li><a href="https://cran.r-project.org/package=errorizer">errorizer on CRAN</a></li>
+</ul>
+</div>
+<div id="webscraping-analysis" class="section level2">
+<h2>Webscraping Analysis</h2>
+<p>I spent some time scraping a popular dating site (I’ll call it “OKStupid”) in an attempt to practice extracting info from diverse samples and increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as some of the more interesting analyses I’ve done.</p>
+<ul>
+<li><a href="www/OKC/scrape.html">Web Scraping</a></li>
+<li><a href="www/OKC/munge.html">Data Munging</a></li>
+<li>Mapping Match Percent</li>
+<li>Predictive Power of Age/The Importance of R-squared</li>
+</ul>
+</div>
+<div id="other-projectsachivements" class="section level2">
+<h2>Other Projects/Achivements:</h2>
+<ul>
+<li><strong>Translated genetic network traversal algorithms</strong> from R to Julia</li>
+<li><strong>Built high performance databases</strong> serving analytics dashboards for California CORE Districts</li>
+<li><strong>Built neural-network classifiers to determine the contents of data submission files</strong> based on byte distributions in first few rows. Ensured a faster and more accurate classification than prior business-rule based systems.</li>
+<li><strong>Discovered issues with a large public school system’s teacher attrition rate</strong> by analyzing the data in a novel way. Led the district to investigate more and look for solutions.</li>
+<li><strong>Wrote models to predict students that were likely to succede in AP classes</strong> and in the process, found that some schools were placing students that had no hope of passing or who were expected to drop out into AP classes to boost enrollment. Positive student-focused policy changes were implemented.</li>
+<li><strong>Modernized technical infrastructure of several past workplaces</strong>, making version control, code packages , and infrastructure as code standard practice, and streamlining workflow by improving computational infrastructure, replacing versioned flat files with relational databases, and spreading awareness about best practices for tools like R, Python, Linux, git, SQL, and more.</li>
+<li><strong>Built a dashboard for easier data access</strong> allowing researchers to query data on their own with a point and click interface rather than having to request data from a data manager and wait for it to be constructed.</li>
+<li><strong>Wrote an algorithm for creating matched samples</strong> based on bagging and unsupervised learning that is more flexible and reduces bias in small datasets. This method was used in the landmark Autism early intervention paper: *Rogers, S. J., Vismara, L., Wagner, A. L., McCormick, C., Young, G., &amp; Ozonoff, S. (2014). Autism Treatment in the First Year of Life: A Pilot Study of Infant Start, a Parent-Implemented Intervention for Symptomatic Infants. Journal of Autism and Developmental Disorders, 44(12), 2981–2995. <a href="http://doi.org/10.1007/s10803-014-2202-y*" class="uri">http://doi.org/10.1007/s10803-014-2202-y*</a></li>
+</ul>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
