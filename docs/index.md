@@ -38,7 +38,7 @@ Regrettably, many of the projects I've worked on that I am most proud of live be
 
 I designed Agroft with support and funding from USAID and the UC Davis International Programs Office. Agroft is a graphical interface to R that is designed to help lower the R learning curve for agricultural researchers and make sound statistical analysis of field trial experimental designs accessible to anyone who needs it. 
 
-The GUI offers the user a logical workflow that progresses through loading data, specifying experimental design, checking the assumptions of the model(s) required for that design, data transformations, running a model and posthoc tests, graphing the data, and exporting results into a useful report, with helpful tool tips and guidance on terms and statistical procedures along the way. The user doesn't need to know about the complexity of the models behind the scenes, but they are shown the code that is run along the way and encouraged to build on that code on their own. 
+The GUI offers the user a logical workflow that progresses through loading data, specifying experimental design, checking the assumptions of the model(s) required for that design, data transformations, running a model and posthoc tests, plotting the data, and exporting results into a useful report, with helpful tool tips and guidance on terms and statistical procedures along the way. The user doesn't need to know about the complexity of the models behind the scenes, but they are shown the code that is run along the way and encouraged to build on that code on their own. 
 
 * [github repo](https://github.com/ucd-ipo/agroft)
 * [live app](http://ikkyle.com/playground/aip-analysis/)
@@ -53,7 +53,7 @@ Errorizer is a R package I wrote and submitted to CRAN to help me debug code tha
 
 ## Webscraping Analysis
 
-I spent some time scraping a popular dating site (I'll call it "OKStupid") in an attempt to practice extracting info from diverse samples and increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as some of the more interesting analyses I've done. 
+I spent some time scraping a popular dating site in an attempt to practice extracting info from diverse samples and increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as some of the more interesting analyses I've done. 
 
 * [Web Scraping](www/OKC/scrape.html)
 * [Data Munging](www/OKC/munge.html)
