@@ -32,6 +32,13 @@ The GUI offers the user a logical workflow that progresses through loading data,
 * [github repo](https://github.com/ucd-ipo/agroft)
 * [live app](http://ikkyle.com/playground/aip-analysis/)
 
+### Errorizer
+
+Errorizer is a R package I wrote and submitted to CRAN to help me debug code that executes in large iterations and fails due to unhandled errors. It's only function, `errorize`, takes a function as one of it's arguments and returns that same function with expanded error handling abilities, including the ability to write debugging info and data structues to disk on error. It was particularly useful when processing the hundreds of thousands of web pages I scraped for my social media analysis--an unhandled error 2 hours into my script can be difficult to debug post hoc with just the stack trace, so "errorizing" my processing function allowed me to go back and interactivly debug the error after my script had finished. 
+
+* [github repo](https://github.com/ikkyle/errorizer)
+* [CRAN](https://cran.r-project.org/package=errorizer)
+
 ### Webscraping Analysis
 
 I spent some time scraping a popular dating site (I'll call it "OKStupid") in an attempt to practice extracting info from diverse samples and increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as some of the more interesting analyses I've done. 
