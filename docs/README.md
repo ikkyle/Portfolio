@@ -16,7 +16,7 @@ My <a href="www/src/resume.pdf" download>resume</a> offers more information on m
 
 ## Bragging Rights:
 
-I play drums in an instrumental jazz/rock/funk band called The Splodeyheads, one of my life goals is to get a private pilot license, and 
+I play drums in an instrumental jazz/rock/funk band called The Splodeyheads, one of my life goals is to get a private pilot license, and I'm always looking to grow my collection of strange taxidermy. 
 
 
 # Past Work
