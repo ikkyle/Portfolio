@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+# About Me
 
-You can use the [editor on GitHub](https://github.com/ikkyle/ikkyle.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+I am a graduate of UC Davis with a B.S. degree in psychology and statistics. I've worked conducting data analysis and building data systems in fields as diverse as Healthcare, Agriculture, Education, and Genomics. In the past I've been a Data Scientist, a DBA, a DevOps Engineer, a Researcher, a Software Developer, and a Linux Systems Admin, but I find I operate best when I blur the lines  between all those roles. I'm deepy devoted to utilizing data for social good, and strive to work with like minded people.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I'm passionate about soclai and economic justice, open access to information, and using technological advancements in data collection, management, and analysis, to create measureable positive change. 
 
-### Markdown
+My [resume](./resume.pdf) offers more information on my educational and vocational history. My (rarely updated) [personal website](http://ikkyle.com) offers a look into some topics that were of interest to me years ago, but was mostly created as a tool to learn about managing remote servers and to have access to my development environments (Rstudio server, Jupyter) from any computer, and my embarrassingly candid blog [fauxktrends](http://fauxktrends.tumblr.com/archive) offers a view into a web scraping and analysis project I found engaging several years ago. I link to it not becasue it is terribly impressive or engaging, but to remind myself that the past informs the future, and forgetting about the past (purposefully or not), means we will be doomed to repeat it*. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+* An issue that comes up often in building models, mathematical ot otherwise, as it is so easy and can be so damaging to encode historial biases in our models. 
 
-```markdown
-Syntax highlighted code block
+# Past Work
 
-# Header 1
-## Header 2
-### Header 3
+Regrettibly, many of the projects I've worked on that I am most proud of live behing closed doors, due to the sensitivity of the data I work with and employer policies. What follows are some projects I've worked on. Many are hobbies entirely unrelated to my substantive interests, but a few gems (like [Agroft](https://github.com/ucd-ipo/agroft)) offer some real value. 
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ikkyle/ikkyle.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Agroft
+## Dating Site Analysis
+## Data Vis
