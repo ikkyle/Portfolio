@@ -34,7 +34,7 @@ I play drums in an instrumental jazz/rock/funk band called The Splodeyheads, one
 
 Regrettably, many of the projects I've worked on that I am most proud of live behind closed doors, due to the sensitivity of the data I work with and employer policies. What follows are some projects I've worked on that I *can* show off. Many are hobbies entirely unrelated to my substantive interests, but a few gems offer some real value. 
 
-## Agroft {#agroft}
+## Software Development: Agroft {#agroft}
 
 I designed Agroft with support and funding from USAID and the UC Davis International Programs Office. Agroft is a graphical interface to R that is designed to help lower the R learning curve for agricultural researchers and make sound statistical analysis of field trial experimental designs accessible to anyone who needs it. 
 
@@ -43,9 +43,9 @@ The GUI offers the user a logical workflow that progresses through loading data,
 * [github repo](https://github.com/ucd-ipo/agroft)
 * [live app](http://ikkyle.com/playground/aip-analysis/)
 
-## Errorizer
+## CRAN R package: Errorizer
 
-Errorizer is a R package I wrote and submitted to CRAN to help me debug code that executes in large iterations and fails due to unhandled errors. It's only function, `errorize`, takes a function as one of it's arguments and returns that same function with expanded error handling abilities, including the ability to write debugging info and data structures to disk on error. It was particularly useful when processing the hundreds of thousands of web pages I scraped for my social media analysis--an unhandled error 2 hours into my script can be difficult to debug post hoc with just the stack trace, so "errorizing" my processing function allowed me to go back and interactively debug the error after my script had finished. 
+`Errorizer` is a R package I wrote and submitted to CRAN to help me debug code that executes in large iterations and fails due to unhandled errors. Its only function, `errorize`, takes a function as one of its arguments and returns that same function with expanded error handling abilities, including the ability to write debugging info and data structures to disk on error. It was particularly useful when processing the hundreds of thousands of web pages I scraped for my social media analysis--an unhandled error 2 hours into my script can be difficult to debug post hoc with just the stack trace, so "errorizing" my processing function allowed me to go back and interactively debug the error after my script had finished. 
 
 * [errorizer github repo](https://github.com/ikkyle/errorizer)
 * [errorizer on CRAN](https://cran.r-project.org/package=errorizer)
@@ -72,7 +72,7 @@ I spent some time scraping a popular dating site in an attempt to practice extra
 * **Used association rule learning algorithms to determine student course pathways**, converting a previously heuristic-based pathway identification process into a data-driven process. 
 * **Modernized technical infrastructure of several organizations**, making version control, code packages , and infrastructure as code standard practice, and streamlining workflow by improving computational infrastructure, replacing versioned flat files with relational databases, and spreading awareness about best practices for tools like R, Python, Linux, git, SQL, and more. 
 * **Built a data portal for easier data access** allowing researchers to query data on their own with a point and click interface rather than having to request a dataset from a data manager and wait for it to be constructed. 
-* **Wrote an algorithm for creating matched samples** based on bagging and unsupervised learning that is more flexible and reduces bias in small datasets. This method was used in the landmark Autism early intervention paper: *Rogers, S. J., Vismara, L., Wagner, A. L., McCormick, C., Young, G., & Ozonoff, S. (2014). Autism Treatment in the First Year of Life: A Pilot Study of Infant Start, a Parent-Implemented Intervention for Symptomatic Infants. Journal of Autism and Developmental Disorders, 44(12), 2981–2995. http://doi.org/10.1007/s10803-014-2202-y*
+* **Wrote an algorithm for creating matched samples** based on bagging and unsupervised learning that is more flexible and reduces bias in small datasets. This method was used in the landmark Autism early intervention paper: *Rogers, S. J., Vismara, L., Wagner, A. L., McCormick, C., Young, G., & Ozonoff, S. (2014). Autism Treatment in the First Year of Life: A Pilot Study of Infant Start, a Parent-Implemented Intervention for Symptomatic Infants. Journal of Autism and Developmental Disorders, 44(12), 2981–2995. `http://doi.org/10.1007/s10803-014-2202-y`*
 * **Authored all statistical analyses on two masters theses** coming out of the UC Davis School of Agriculture. One used methods I later implemented in [Agroft](#agroft), the other involved analysis of survey data.
 
 
