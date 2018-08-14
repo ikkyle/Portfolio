@@ -1,5 +1,5 @@
 .idea
-www/OKC/data/userdata.db
+code/OKC/data/userdata.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
