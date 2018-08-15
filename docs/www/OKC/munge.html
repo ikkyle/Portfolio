@@ -165,7 +165,7 @@ library(RSQLite)</code></pre>
 </div>
 <div id="munging" class="section level1">
 <h1>Munging</h1>
-<p>This part id pretty straight forward. Any missing data is dealt with by passing <code>NA</code> to the relevant field. Missings will be dealth with later depending on the analysis.</p>
+<p>This part is pretty straight forward. Any missing data is dealt with by passing <code>NA</code> to the relevant field. Missings will be dealt with later depending on the analysis.</p>
 <pre class="r"><code>db &lt;- dbConnect(SQLite(), 'data/userdata.db')
 
 # this is a vector of all raw HTML I've scraped but not yet processed
@@ -290,7 +290,7 @@ usr_data &lt;- do.call(rbind, dat)</code></pre>
 <div id="file-management" class="section level1">
 <h1>File management</h1>
 <p>After processing all the raw files, I pull out a list of existing usernames in the databse to make sure I’m dont inserting duplicates. I’m not worried about keeping up to date verions if a user changes their profile from one pull to another, so I’m perfectly happy throwing out the duplicate user info. This approach also means I can use the user name as a natural key and not worry about having to do any joins in the insert process.</p>
-<p>The rest of the script is coping processed files to an archive location so they aren’t needlessly processed again, backing up database tables, in case something goes wrong somewhere in a future insert (I have database backups as well, but these are managed automatically by dropbox).</p>
+<p>The rest of the script is copying processed files to an archive location so they aren’t needlessly processed again and backing up database tables, in case something goes wrong somewhere in a future insert (I have database backups as well, but these are managed externally).</p>
 <pre class="r"><code>in_tbl &lt;- unique(dbGetQuery(db, 'select username from tbl_userdata')$username)
 usr_data2 &lt;- usr_data[which(!usr_data$username %in% in_tbl), ]
 

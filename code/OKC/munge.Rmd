@@ -33,7 +33,7 @@ trim <- function(x){
 
 # Munging
 
-This part id pretty straight forward. Any missing data is dealt with by passing `NA` to the relevant field. Missings will be dealth with later depending on the analysis. 
+This part is pretty straight forward. Any missing data is dealt with by passing `NA` to the relevant field. Missings will be dealt with later depending on the analysis. 
 
 ```{r eval=FALSE}
 db <- dbConnect(SQLite(), 'data/userdata.db')
@@ -162,7 +162,7 @@ usr_data <- do.call(rbind, dat)
 
 After processing all the raw files, I pull out a list of existing usernames in the databse to make sure I'm dont inserting duplicates. I'm not worried about keeping up to date verions if a user changes their profile from one pull to another, so I'm perfectly happy throwing out the duplicate user info. This approach also means I can use the user name as a natural key and not worry about having to do any joins in the insert process. 
 
-The rest of the script is coping processed files to an archive location so they aren't needlessly processed again, backing up database tables, in case something goes wrong somewhere in a future insert (I have database backups as well, but these are managed automatically by dropbox). 
+The rest of the script is copying processed files to an archive location so they aren't needlessly processed again and backing up database tables, in case something goes wrong somewhere in a future insert (I have database backups as well, but these are managed externally). 
 
 
 ```{r eval=FALSE}
