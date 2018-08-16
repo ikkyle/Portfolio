@@ -12,7 +12,7 @@ output:
 
 # About Me
 
-**Roz King**/Ian Kyle
+**Roz King**
 
 Pronouns: they, them, theirs
 
@@ -53,12 +53,12 @@ The GUI offers the user a logical workflow that progresses through loading data,
 
 ## Webscraping Analysis
 
-I spent some time scraping a popular dating site in an attempt to practice extracting info from diverse samples and increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as some of the more interesting analyses I've done.
+I spent some time scraping a popular dating site in an attempt to practice extracting info from diverse samples and increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as a few analyses I've done.
 
 * [Web Scraping](www/OKC/scrape.html)
 * [Data Munging](www/OKC/munge.html)
 * [Mapping Match Percent](www/OKC/mapping_match_pct.html)
-* Predictive Power of Age/The Importance of R-squared
+* [Predictive Power of Age/The Importance of R-squared](www/OKC/age_match_prediction.html)
 
 
 ## Other Projects/Achivements
