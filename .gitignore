@@ -1,5 +1,6 @@
 .idea
 code/OKC/data/userdata.db
+*.feather
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
