@@ -51,6 +51,15 @@ The GUI offers the user a logical workflow that progresses through loading data,
 * [errorizer on CRAN](https://cran.r-project.org/package=errorizer)
 * [Vignette](https://cran.r-project.org/web/packages/errorizer/vignettes/errorize.html)
 
+## Deep Learning Blog Series
+
+I wrote a short blog series on my [blog](www.rkingdc.com/blog) about a problem I encounted a few years ago that could have been addressed with deep learning techniques. I simulated some similar data and showed how to build a model that can address that problem successfully. 
+
+* [Machine Learning On A 'Real Problem' - Part 1: Image Processing](https://ikkyle.github.io/rkingdc-blog/regplot/code/create_training_set.html)
+* [Machine Learning on a 'Real Problem' - Part 2: Using the Right Model](https://ikkyle.github.io/rkingdc-blog/regplot/code/deep_learning_1.html)
+* [Machine Learning on a 'Real Problem' - Part 3: The Final Model](https://ikkyle.github.io/rkingdc-blog/regplot/code/deep_learning_2.html)
+
+
 ## Webscraping Analysis
 
 I spent some time scraping a popular dating site in an attempt to practice extracting info from diverse samples and increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as a few analyses I've done.
