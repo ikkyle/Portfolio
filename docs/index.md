@@ -53,7 +53,7 @@ The GUI offers the user a logical workflow that progresses through loading data,
 
 ## Deep Learning Blog Series
 
-I wrote a short blog series on my [blog](https://www.rkingdc.com/blog) about a problem I encounted a few years ago that could have been addressed with deep learning techniques. I simulated some similar data and showed how to build a model that can address that problem successfully. 
+I wrote a short blog series on my [website](https://www.rkingdc.com) about a problem I encounted a few years ago that could have been addressed with deep learning techniques. I simulated some similar data and showed how to build a model that can address that problem successfully. 
 
 * [Machine Learning on a 'Real Problem' - Part 1: Image Processing](https://www.rkingdc.com/blog/2018/8/23/machine-learning-on-a-real-problem-1)
 * [Machine Learning on a 'Real Problem' - Part 2: Using the Right Model](https://www.rkingdc.com/blog/machine-learning-on-a-real-problem-2)
