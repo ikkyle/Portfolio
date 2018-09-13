@@ -18,7 +18,7 @@ Pronouns: they, them, theirs
 
 ### Background
 
-I am a graduate of UC Davis with a B.S. degree in psychology and statistics. I've worked conducting data analysis and building data systems in fields as diverse as Healthcare, Agriculture, Education, and Genomics. In the past I've been a Data Scientist, a DBA, a DevOps Engineer, a Researcher, a Software Developer, and a Linux Systems Admin, but I find I operate best when I blur the lines  between all those roles. I'm deeply devoted to utilizing data for social good, and strive to work with like minded people.
+I am a graduate of UC Davis with a B.S. degree in psychology and statistics. I've worked conducting data analysis and building data systems in fields as diverse as Healthcare, Agriculture, Education, and Genomics. In the past I've been a Data Scientist, a Database Admin, a DevOps Engineer, a Researcher, a Software Developer, and a Linux Systems Admin, but I find I operate best when I blur the lines  between all those roles. I'm deeply devoted to utilizing data for social good, and strive to work with like minded people.
 
 I'm passionate about social and economic justice, open access to information, and using technological advancements in data collection, management, and analysis, to create measurable positive change.
 
