@@ -22,7 +22,7 @@ I am a graduate of UC Davis with a B.S. degree in psychology and statistics. I'v
 
 I'm passionate about social and economic justice, open access to information, and using technological advancements in data collection, management, and analysis, to create measurable positive change.
 
-My <a href="www/src/resume.pdf" download>resume</a> offers more information on my educational and vocational history. My (rarely updated) [personal website](http://ikkyle.com) offers a look into some topics that were of interest to me years ago, but was mostly created as a tool to learn about managing remote servers and to have access to my development environments (Rstudio server, Jupyter) from any computer, and my embarrassingly candid blog [fauxktrends](http://fauxktrends.tumblr.com/archive) offers a view into a web scraping and analysis project I found engaging several years ago. I link to it not because it is terribly impressive or engaging, but to remind myself that the past informs the future, and forgetting about the past (purposefully or not), means we will be doomed to repeat it*.
+My <a href="www/src/resume.pdf" download>resume</a> offers more information on my educational and vocational history. My [website](https://www.rkingdc.com) shows the services I offer as a consultant and has a blog detailing a few recent projects, and my embarrassingly candid blog [fauxktrends](http://fauxktrends.tumblr.com/archive) offers a view into a web scraping and analysis project I found engaging years ago. I link to it not because it is terribly impressive or engaging, but to remind myself that the past informs the future, and forgetting about the past (purposefully or not), means we will be doomed to repeat it*.
 
 \*An issue that comes up often in building models, mathematical or otherwise, as it is so easy and can be so damaging to encode historical biases in our models.
 
@@ -62,7 +62,7 @@ I wrote a short blog series on my [website](https://www.rkingdc.com) about a pro
 
 ## Webscraping Analysis
 
-I spent some time scraping a popular dating site in an attempt to practice extracting info from diverse samples and increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as a few analyses I've done.
+I spent some time scraping a popular dating site in an attempt to practice extracting info from diverse samples and to increase my skills in interactive data visualization, text mining and web-scraping. Below are links to notebooks that show my scraping and munging process, as well as a few analyses I've done.
 
 * [Web Scraping](www/OKC/scrape.html)
 * [Data Munging](www/OKC/munge.html)
